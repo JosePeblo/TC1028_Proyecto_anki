@@ -98,7 +98,7 @@ def rating_exception():
         " 1 = nada \n 5 = perfectamente \n")
     while True:
         rating = input()
-        if not(rating.isnumeric()):
+        if not(rating.isnumeric()):                      #estrucutras de decisión
             print("Ingresa un valor numérico")
             continue
         rating = int(rating)
@@ -137,7 +137,7 @@ print("Bienvenido al programa de estudio Anki, elige una opción del menú \n"
 " Imprimir todas las entradas.............3 \n"
 " Salir del programa......................4")
 answer = menu_exception()
-if answer == 1:
+if answer == 1:                                    #estrucutras de decisión
     create_list()
 elif answer == 2:
     review()
