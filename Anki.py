@@ -23,7 +23,6 @@ def read_file():
         data = list(reader)
         return data
 
-
 def write_file(entries):
     """
     sobrescribe el archivo y añade las nuevas entradas
@@ -53,7 +52,7 @@ def create_list():
     devuelve la lista generada a write_file()
     """
     entry_list = []
-    while True:
+    while True:                                                   #estrucutras de repetición
         temp_entry = [0,0,1]
         temp_entry[0] = input("Escribe título de la tarjeta ")
         temp_entry[1] = input("Escribe la respuesta, definición o"
@@ -77,7 +76,7 @@ def review():
     entry_num = len(lists)
     study_iterations = int(input("Escribe cuántas tarjetas quieres" 
         " que aparezcan "))
-    for i in range(study_iterations):
+    for i in range(study_iterations):                            #estrucutras de repetición
         rand_entry = random.randint(0, entry_num-1)
         print(lists[rand_entry][0])
         input()
@@ -98,7 +97,7 @@ def rating_exception():
         " 1 = nada \n 5 = perfectamente \n")
     while True:
         rating = input()
-        if not(rating.isnumeric()):                      #estrucutras de decisión
+        if not(rating.isnumeric()):
             print("Ingresa un valor numérico")
             continue
         rating = int(rating)
@@ -137,13 +136,12 @@ print("Bienvenido al programa de estudio Anki, elige una opción del menú \n"
 " Imprimir todas las entradas.............3 \n"
 " Salir del programa......................4")
 answer = menu_exception()
-if answer == 1:                                    #estrucutras de decisión
+if answer == 1:
     create_list()
 elif answer == 2:
     review()
 elif answer == 3:
     print(read_file())
-
 
 input("Lol")
 
