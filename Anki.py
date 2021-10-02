@@ -52,8 +52,8 @@ def create_list():
     devuelve la lista generada a write_file()
     """
     entry_list = []
-    while True:                                                   #estrucutras de repetición
-        temp_entry = [0,0,1]
+    while True:                                                   
+        temp_entry = [0,0,1]                                        #Listas
         temp_entry[0] = input("Escribe título de la tarjeta ")
         temp_entry[1] = input("Escribe la respuesta, definición o"
             "explicacion de la tarjeta ")
@@ -76,9 +76,9 @@ def review():
     entry_num = len(lists)
     study_iterations = int(input("Escribe cuántas tarjetas quieres" 
         " que aparezcan "))
-    for i in range(study_iterations):                            #estrucutras de repetición
+    for i in range(study_iterations):                            
         rand_entry = random.randint(0, entry_num-1)
-        print(lists[rand_entry][0])
+        print(lists[rand_entry][0])                               #Listas
         input()
         print(lists[rand_entry][1], "\n")
         lists[rand_entry][2]= rating_exception()
