@@ -53,11 +53,11 @@ def create_list():
     """
     entry_list = []
     while True:                                                   
-        temp_entry = [0,0,1]                                        #Listas
+        temp_entry = [0,0,1]
         temp_entry[0] = input("Escribe título de la tarjeta ")
         temp_entry[1] = input("Escribe la respuesta, definición o"
             "explicacion de la tarjeta ")
-        entry_list.append(temp_entry)
+        entry_list.append(temp_entry)    #Matrices
 
         iterate = input("Si deseas añadir una nueva tarjeta escribe" 
             " 1 o presiona enter para continuar ")
@@ -74,11 +74,11 @@ def review():
     """
     lists = read_file()
     entry_num = len(lists)
-    study_iterations = int(input("Escribe cuántas tarjetas quieres" 
+    study_iterations = int(input("Escribe cuántas tarjetas quieres"
         " que aparezcan "))
-    for i in range(study_iterations):                            
+    for i in range(study_iterations):
         rand_entry = random.randint(0, entry_num-1)
-        print(lists[rand_entry][0])                               #Listas
+        print(lists[rand_entry][0])
         input()
         print(lists[rand_entry][1], "\n")
         lists[rand_entry][2]= rating_exception()
@@ -89,7 +89,7 @@ def review():
 """
 def rating_exception():
     """
-    bucle que solo se rompe si el valor ingresado 
+    bucle que solo se rompe si el valor ingresado
     es numérico y está en el rango de valores solicitados
     devuelve: rating valor numérico
     """
