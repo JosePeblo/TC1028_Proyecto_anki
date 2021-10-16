@@ -6,7 +6,6 @@ la calificación que les asignes determinará la
 frecuencia con la que estas aparezcan.
 """
 #bibliotecas
-from math import e
 import random
 import csv
 
@@ -53,11 +52,11 @@ def create_list():
     """
     entry_list = []
     while True:                                                   
-        temp_entry = [0,0,1]
+        temp_entry = [0,0,1,0]
         temp_entry[0] = input("Escribe título de la tarjeta ")
         temp_entry[1] = input("Escribe la respuesta, definición o"
-            "explicacion de la tarjeta ")
-        entry_list.append(temp_entry)    #Matrices
+            " explicacion de la tarjeta ")
+        entry_list.append(temp_entry)
 
         iterate = input("Si deseas añadir una nueva tarjeta escribe" 
             " 1 o presiona enter para continuar ")
@@ -66,7 +65,7 @@ def create_list():
         break
     write_file(entry_list)
 
-def review():
+def review(study_iterations):
     """
     pide un número de tarjetas a imprimir
     despliega el título y después la definición 
@@ -74,14 +73,15 @@ def review():
     """
     lists = read_file()
     entry_num = len(lists)
-    study_iterations = int(input("Escribe cuántas tarjetas quieres"
-        " que aparezcan "))
+    
     for i in range(study_iterations):
         rand_entry = random.randint(0, entry_num-1)
         print(lists[rand_entry][0])
         input()
         print(lists[rand_entry][1], "\n")
         lists[rand_entry][2]= rating_exception()
+        lists[rand_entry][3] = int(lists[rand_entry][3]) + 1
+        print("Has estudiado esta tarjeta {} veces".format(lists[rand_entry][3]))
     update_file(lists)
 
 """
@@ -127,23 +127,41 @@ def menu_exception():
             continue
         return answer
 
-"""
+print("Bienvenido al programa de estudio Anki, elige una opción del menú")
 
-"""
-print("Bienvenido al programa de estudio Anki, elige una opción del menú \n"
-" Crear una nueva entrada.................1 \n" 
-" Repasar la unidad.......................2 \n" 
-" Imprimir todas las entradas.............3 \n"
-" Salir del programa......................4")
-answer = menu_exception()
-if answer == 1:
-    create_list()
-elif answer == 2:
-    review()
-elif answer == 3:
-    print(read_file())
+while True:
+    print("""    Crear una nueva entrada.................1 
+    Repasar la unidad.......................2 
+    Imprimir todas las entradas.............3
+    Salir del programa......................4""")
 
-input("Lol")
+    answer = menu_exception()
+    if answer == 1:
+        create_list()
+
+    elif answer == 2:
+
+        while True:
+            print("Escribe cuántas tarjetas quieres que aparezcan")
+            iterations = input()
+            if not(iterations.isnumeric()):
+                print("Ingresa un número")
+                continue
+            iterations = int(iterations)
+            if  iterations < 1:
+                print("Ingresa un número mayor a cero")
+                continue
+            break
+
+        review(iterations)
+
+    elif answer == 3:
+        print(read_file())
+        input()
+
+    else:
+        break
+print("Gracias por usar el programa")
 
 
 

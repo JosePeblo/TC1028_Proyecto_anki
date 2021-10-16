@@ -1,0 +1,30 @@
+Sub-Competencia: 
+	componente: usa operadores aritméticos de manera eficaz
+
+Error original: En el primer avance no utilicé ningún operador aritmético.
+
+Cambio realizado: Añadir operaciones aritméticas 
+	rand_entry = random.randint(0, entry_num-1)
+	
+	lists[rand_entry][3] = int(lists[rand_entry][3]) + 1
+
+Líneas de código donde se ve la corrección: 78 a 83
+
+=================================================================
+
+Sub-Competencia: 
+	componente: usa la forma más a apropiada al problema para guardar los datos (listas, variable, tipo de dato, etc...)
+
+Error original: 
+	En el avance 6 el código no le funcionó a quien hizo la revisión
+	ya que no corrió el programa con la ruta adecuada y 
+	por lo tanto no se leyó el archivo adicional en el folder.
+
+Cambio realizado:
+	No hubo cambio, si se corre el programa dando doble click en el .py la ruta de este estará 
+	en el mismo folder donde esté el compilador (generalmente windows32) para que el programa 
+	corra correctamente se debe correr desde la consola y en el folder correcto 
+	o en un ide junto con el archivo Entries.csv en el mismo folder. 
+
+
+Líneas de código donde se ve la corrección:
